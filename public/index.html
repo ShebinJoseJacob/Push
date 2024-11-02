@@ -31,7 +31,7 @@
         });
 
         // Send the subscription object to the server
-        await fetch('/subscribe', {
+        await fetch('https://push-70hs.onrender.com/subscribe', {
           method: 'POST',
           body: JSON.stringify(subscription),
           headers: {
