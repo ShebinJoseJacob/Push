@@ -1,0 +1,14 @@
+{
+  "name": "push-notifications-demo",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "web-push": "^3.4.4",
+    "dotenv": "^10.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
