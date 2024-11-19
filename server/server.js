@@ -23,6 +23,10 @@ webPush.setVapidDetails(
 // Store subscriptions (use a database in production)
 let subscriptions = [];
 
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
+
 app.post('/subscribe', (req, res) => {
     const subscription = req.body;
     subscriptions.push(subscription);
