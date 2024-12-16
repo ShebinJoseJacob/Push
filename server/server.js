@@ -34,8 +34,18 @@ app.post('/subscribe', (req, res) => {
 });
 
 app.post('/notify', (req, res) => {
-    const notificationPayload = JSON.stringify({ title: 'New Notification', body: 'You have a new message!' });
+    // Extract the title and body from the request body
+    const { title, body } = req.body;
 
+    // Check if title and body are provided
+    if (!title || !body) {
+        return res.status(400).json({ error: 'Title and body are required' });
+    }
+
+    // Create the notification payload
+    const notificationPayload = JSON.stringify({ title, body });
+
+    // Send notifications to all subscriptions
     const promises = subscriptions.map((subscription) =>
         webPush.sendNotification(subscription, notificationPayload)
     );
